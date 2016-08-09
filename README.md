@@ -8,22 +8,20 @@ Creates a Joi object that validates password complexity.
 
 ## Example
 
+### No options specified
+
 ```
 const Joi = require('joi');
-const joiPasswordComplexity = require('joi-password-complexity');
+const PasswordComplexity = require('joi-password-complexity');
 
-Joi.validate('aPassword123!', joiPasswordComplexity(), (err, value) => {
+Joi.validate('aPassword123!', new PasswordComplexity(), (err, value) => {
   ...
 })
 ```
 
-with options
-
+When no options are specified, the following are used:
 ```
-const Joi = require('joi');
-const joiPasswordComplexity = require('joi-password-complexity');
-
-const complexityOptions = {
+{
   min: 8,
   max: 26,
   lowerCase: 1,
@@ -32,8 +30,25 @@ const complexityOptions = {
   symbol: 1,
   requirementCount: 3,
 }
+```
 
-Joi.validate('aPassword123!', joiPasswordComplexity(complexityOptions), (err, value) => {
+### Options specified
+
+```
+const Joi = require('joi');
+const PasswordComplexity = require('joi-password-complexity');
+
+const complexityOptions = {
+  min: 10,
+  max: 30,
+  lowerCase: 1,
+  upperCase: 1,
+  numeric: 1,
+  symbol: 1,
+  requirementCount: 2,
+}
+
+Joi.validate('aPassword123!', new PasswordComplexity(complexityOptions), (err, value) => {
   ...
 })
 ```
