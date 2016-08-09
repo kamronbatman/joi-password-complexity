@@ -1,0 +1,28 @@
+{
+  "name": "joi-password-complexity",
+  "version": "1.0.0",
+  "description": "Joi validation for password complexity requirements.",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kamronbatman/joi-password-complexity.git"
+  },
+  "peerDependencies": {
+    "joi": "^9.0.0",
+  },
+  "keywords": [
+    "Joi",
+    "validation",
+    "password",
+    "complexity"
+  ],
+  "author": "Kamron Batman <kamron.batman@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kamronbatman/joi-password-complexity/issues"
+  },
+  "homepage": "https://github.com/kamronbatman/joi-password-complexity#readme"
+}
