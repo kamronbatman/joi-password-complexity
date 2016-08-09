@@ -10,17 +10,17 @@ Creates a Joi object that validates password complexity.
 
 ### No options specified
 
-```
+```javascript
 const Joi = require('joi');
 const PasswordComplexity = require('joi-password-complexity');
 
 Joi.validate('aPassword123!', new PasswordComplexity(), (err, value) => {
-  ...
+  //...
 })
 ```
 
 When no options are specified, the following are used:
-```
+```javascript
 {
   min: 8,
   max: 26,
@@ -34,7 +34,7 @@ When no options are specified, the following are used:
 
 ### Options specified
 
-```
+```javascript
 const Joi = require('joi');
 const PasswordComplexity = require('joi-password-complexity');
 
@@ -49,7 +49,7 @@ const complexityOptions = {
 }
 
 Joi.validate('aPassword123!', new PasswordComplexity(complexityOptions), (err, value) => {
-  ...
+  //...
 })
 ```
 
