@@ -1,6 +1,6 @@
 {
   "name": "joi-password-complexity",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Joi validation for password complexity requirements.",
   "main": "lib/index.js",
   "scripts": {
