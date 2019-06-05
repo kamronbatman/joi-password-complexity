@@ -27,8 +27,7 @@ When no options are specified, the following are used:
   lowerCase: 1,
   upperCase: 1,
   numeric: 1,
-  symbol: 1,
-  requirementCount: 3,
+  symbol: 1
 }
 ```
 
@@ -44,11 +43,10 @@ const complexityOptions = {
   lowerCase: 1,
   upperCase: 1,
   numeric: 1,
-  symbol: 1,
-  requirementCount: 2,
+  symbol: 1
 }
 
-Joi.validate('aPassword123!', new PasswordComplexity(complexityOptions), (err, value) => {
+Joi.validate('aPassword123!', new PasswordComplexity(complexityOptions), (errors, value) => {
   //...
 })
 ```
