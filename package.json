@@ -4,7 +4,7 @@
   "description": "Joi validation for password complexity requirements.",
   "main": "lib/index.js",
   "scripts": {
-    "test": "npm test"
+    "test": "jest --watchAll --verbose"
   },
   "repository": {
     "type": "git",
@@ -22,6 +22,10 @@
     "password",
     "complexity"
   ],
+  "devDependencies": {
+    "joi": ">=10.5.0",
+    "jest": "^24.8.0"
+  },
   "author": "Kamron Batman <kamron.batman@gmail.com>",
   "license": "MIT",
   "bugs": {
