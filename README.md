@@ -2,6 +2,10 @@
 
 Creates a Joi object that validates password complexity.
 
+## Requirements
+* Joi v15 or higher
+* Nodejs 8 or higher
+
 ## Installation
 
 `npm install joi-password-complexity`
