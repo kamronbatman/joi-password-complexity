@@ -1,0 +1,17 @@
+{
+  "extends": ["airbnb-base", "plugin:jest/recommended"],
+  "rules": {
+    "strict": "off",
+    "max-len": "off",
+    "no-console": "off",
+    "no-continue": "off",
+    "no-plusplus": "off",
+    "global-require": "off",
+    "operator-linebreak": ["error", "after"],
+    "no-underscore-dangle": "off",
+    "prefer-const": ["error", { "destructuring": "all", "ignoreReadBeforeAssign": true }]
+  },
+  "env": {
+    "jest/globals": true
+  }
+}
