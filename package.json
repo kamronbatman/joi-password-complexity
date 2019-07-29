@@ -4,7 +4,8 @@
   "description": "Joi validation for password complexity requirements.",
   "main": "lib/index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "lint": "./node_modules/.bin/eslint --fix --ext .js ."
   },
   "repository": {
     "type": "git",
@@ -15,6 +16,7 @@
     "eslint": "^6.1.0",
     "eslint-config-airbnb-base": "^13.2.0",
     "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jest": "^22.14.0",
     "jest": "^24.8.0"
   },
   "engines": {
