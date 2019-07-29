@@ -1,20 +1,24 @@
 {
   "name": "joi-password-complexity",
-  "version": "2.0.1",
+  "version": "3.0.0",
   "description": "Joi validation for password complexity requirements.",
   "main": "lib/index.js",
   "scripts": {
-    "test": "npm test"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kamronbatman/joi-password-complexity.git"
   },
-  "peerDependencies": {
-    "joi": ">=10.5.0"
+  "peerDependencies": {},
+  "devDependencies": {
+    "eslint": "^6.1.0",
+    "eslint-config-airbnb-base": "^13.2.0",
+    "eslint-plugin-import": "^2.18.2",
+    "jest": "^24.8.0"
   },
   "engines": {
-    "node": ">=4.0.0"
+    "node": ">=8.0.0"
   },
   "keywords": [
     "Joi",
@@ -27,5 +31,11 @@
   "bugs": {
     "url": "https://github.com/kamronbatman/joi-password-complexity/issues"
   },
-  "homepage": "https://github.com/kamronbatman/joi-password-complexity#readme"
+  "homepage": "https://github.com/kamronbatman/joi-password-complexity#readme",
+  "jest": {
+    "verbose": true
+  },
+  "dependencies": {
+    "@hapi/joi": "^15.1.0"
+  }
 }
