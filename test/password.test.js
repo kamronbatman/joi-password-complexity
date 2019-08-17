@@ -7,7 +7,7 @@ describe('JoiPasswordComplexity', () => {
     const password = '123';
 
     const result = Joi.validate(password, new PasswordComplexity());
-    const errors = result.error.details.filter(e => e.type === 'passwordComplexity.tooShort');
+    const errors = result.error.details.filter((e) => e.type === 'passwordComplexity.tooShort');
     expect(errors.length).toBe(1);
     expect(errors[0].message).toBe('"value" is too short');
   });
@@ -15,7 +15,7 @@ describe('JoiPasswordComplexity', () => {
     const password = '123456791234567912345679123';
 
     const result = Joi.validate(password, new PasswordComplexity());
-    const errors = result.error.details.filter(e => e.type === 'passwordComplexity.tooLong');
+    const errors = result.error.details.filter((e) => e.type === 'passwordComplexity.tooLong');
 
     expect(errors.length).toBe(1);
     expect(errors[0].message).toBe('"value" is too long');
@@ -25,7 +25,7 @@ describe('JoiPasswordComplexity', () => {
     const password = 'ABCDEFG';
 
     const result = Joi.validate(password, new PasswordComplexity());
-    const errors = result.error.details.filter(e => e.type === 'passwordComplexity.lowercase');
+    const errors = result.error.details.filter((e) => e.type === 'passwordComplexity.lowercase');
 
     expect(errors.length).toBe(1);
     expect(errors[0].message).toBe('"value" doesn\'t contain the required lowercase characters');
@@ -35,7 +35,7 @@ describe('JoiPasswordComplexity', () => {
     const password = 'abcdefg';
 
     const result = Joi.validate(password, new PasswordComplexity());
-    const errors = result.error.details.filter(e => e.type === 'passwordComplexity.uppercase');
+    const errors = result.error.details.filter((e) => e.type === 'passwordComplexity.uppercase');
 
     expect(errors.length).toBe(1);
     expect(errors[0].message).toBe('"value" doesn\'t contain the required uppercase characters');
@@ -45,7 +45,7 @@ describe('JoiPasswordComplexity', () => {
     const password = 'ABCDEFG';
 
     const result = Joi.validate(password, new PasswordComplexity());
-    const errors = result.error.details.filter(e => e.type === 'passwordComplexity.numeric');
+    const errors = result.error.details.filter((e) => e.type === 'passwordComplexity.numeric');
 
     expect(errors.length).toBe(1);
     expect(errors[0].message).toBe('"value" doesn\'t contain the required numeric characters');
@@ -55,7 +55,7 @@ describe('JoiPasswordComplexity', () => {
     const password = 'ABCDEFG';
 
     const result = Joi.validate(password, new PasswordComplexity());
-    const errors = result.error.details.filter(e => e.type === 'passwordComplexity.symbol');
+    const errors = result.error.details.filter((e) => e.type === 'passwordComplexity.symbol');
 
     expect(errors.length).toBe(1);
     expect(errors[0].message).toBe('"value" doesn\'t contain the required symbols');
@@ -110,7 +110,7 @@ describe('JoiPasswordComplexity', () => {
       requirementCount: 0,
     }));
 
-    const errors = result.error.details.filter(e => e.type === 'passwordComplexity.numeric');
+    const errors = result.error.details.filter((e) => e.type === 'passwordComplexity.numeric');
 
     expect(errors.length).toBe(1);
     expect(errors[0].message).toBe('"value" doesn\'t contain the required numeric characters');
