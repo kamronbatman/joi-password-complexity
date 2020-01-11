@@ -26,7 +26,7 @@ describe('JoiPasswordComplexity', () => {
     const errors = result.error.details.filter((e) => e.type === 'passwordComplexity.lowercase');
 
     expect(errors.length).toBe(1);
-    expect(errors[0].message).toBe('"value" should contain at least 1 lowercased letter');
+    expect(errors[0].message).toBe('"value" should contain at least 1 lower-cased letter');
   });
 
   it('should reject a password that doesn\'t meet the required uppercase count', () => {
@@ -36,7 +36,7 @@ describe('JoiPasswordComplexity', () => {
     const errors = result.error.details.filter((e) => e.type === 'passwordComplexity.uppercase');
 
     expect(errors.length).toBe(1);
-    expect(errors[0].message).toBe('"value" should contain at least 1 uppercased letter');
+    expect(errors[0].message).toBe('"value" should contain at least 1 upper-cased letter');
   });
 
   it('should reject a password that doesn\'t meet the required numeric count', () => {
