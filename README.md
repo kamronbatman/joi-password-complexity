@@ -3,8 +3,8 @@
 Creates a Joi object that validates password complexity.
 
 ## Requirements
-* Joi v15 or higher
-* Nodejs 8 or higher
+* Joi v16 or higher
+* Nodejs 10 or higher
 
 ## Installation
 
@@ -15,12 +15,8 @@ Creates a Joi object that validates password complexity.
 ### No options specified
 
 ```javascript
-const Joi = require('@hapi/joi');
-const PasswordComplexity = require('joi-password-complexity');
-
-Joi.validate('aPassword123!', new PasswordComplexity(), (err, value) => {
-  //...
-})
+const passwordComplexity = require('joi-password-complexity');
+passwordComplexity().validate('aPassword123!');
 ```
 
 When no options are specified, the following are used:
@@ -39,8 +35,7 @@ When no options are specified, the following are used:
 ### Options specified
 
 ```javascript
-const Joi = require('@hapi/joi');
-const PasswordComplexity = require('joi-password-complexity');
+const passwordComplexity = require('joi-password-complexity');
 
 const complexityOptions = {
   min: 10,
@@ -52,9 +47,7 @@ const complexityOptions = {
   requirementCount: 2,
 }
 
-Joi.validate('aPassword123!', new PasswordComplexity(complexityOptions), (err, value) => {
-  //...
-})
+passwordComplexity(complexityOptions).validate('aPassword123!');
 ```
 
 ## License
