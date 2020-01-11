@@ -1,5 +1,3 @@
-const Joi = require('@hapi/joi');
-
 const passwordComplexity = require('../lib/index');
 
 describe('JoiPasswordComplexity', () => {
