@@ -130,12 +130,11 @@ describe('JoiPasswordComplexity', () => {
     expect(result.error).toBeUndefined();
   });
 
-  it('should display supplied label', () => {
+  it('should display custom error label when supplied', () => {
     const password = '123';
 
     const result = passwordComplexity(undefined, 'Password').validate(password);
     const errors = result.error.details.filter((e) => e.type === 'passwordComplexity.tooShort');
-    expect(errors.length).toBe(1);
     expect(errors[0].message).toBe('Password should be at least 8 characters long');
   });
 });
