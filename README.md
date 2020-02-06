@@ -3,8 +3,8 @@
 Creates a Joi object that validates password complexity.
 
 ## Requirements
-* Joi v16 or higher
-* Nodejs 10 or higher
+- Joi v16 or higher
+- Nodejs 10 or higher
 
 ## Installation
 
@@ -49,6 +49,17 @@ const complexityOptions = {
 
 passwordComplexity(complexityOptions).validate('aPassword123!');
 ```
+
+### Error Label (optional) Specified
+
+```javascript
+const passwordComplexity = require('joi-password-complexity');
+
+passwordComplexity(undefined, 'Password').validate('aPassword123!');
+```
+
+The resulting error message:
+'Password should be at least 8 characters long'
 
 ## License
 
