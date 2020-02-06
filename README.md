@@ -20,7 +20,6 @@ passwordComplexity().validate('aPassword123!');
 ```
 
 When no options are specified, the following are used:
-
 ```javascript
 {
   min: 8,
