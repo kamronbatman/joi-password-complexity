@@ -3,7 +3,6 @@
 Creates a Joi object that validates password complexity.
 
 ## Requirements
-
 - Joi v16 or higher
 - Nodejs 10 or higher
 
@@ -46,8 +45,8 @@ const complexityOptions = {
   upperCase: 1,
   numeric: 1,
   symbol: 1,
-  requirementCount: 2
-};
+  requirementCount: 2,
+}
 
 passwordComplexity(complexityOptions).validate('aPassword123!');
 ```
