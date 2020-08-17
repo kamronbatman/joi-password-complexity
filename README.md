@@ -54,12 +54,15 @@ passwordComplexity(complexityOptions).validate("aPassword123!");
 
 ### Error Label (optional) Specified
 
+```javascript
+const label = "password"
+```
 - For default options:
 
 ```javascript
 const passwordComplexity = require("joi-password-complexity");
 
-passwordComplexity(undefined, "Password").validate("aPassword123!");
+passwordComplexity(undefined, label).validate("aPassword123!");
 ```
 
 - For specified options:
@@ -67,7 +70,7 @@ passwordComplexity(undefined, "Password").validate("aPassword123!");
 ```javascript
 const passwordComplexity = require("joi-password-complexity");
 
-passwordComplexity(complexityOptions, "Password").validate("aPassword123!");
+passwordComplexity(complexityOptions, label).validate("aPassword123!");
 ```
 
 The resulting error message:
