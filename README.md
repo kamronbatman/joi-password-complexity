@@ -3,6 +3,7 @@
 Creates a Joi object that validates password complexity.
 
 ## Requirements
+
 - Joi v16 or higher
 - Nodejs 10 or higher
 
@@ -15,11 +16,12 @@ Creates a Joi object that validates password complexity.
 ### No options specified
 
 ```javascript
-const passwordComplexity = require('joi-password-complexity');
-passwordComplexity().validate('aPassword123!');
+const passwordComplexity = require("joi-password-complexity");
+passwordComplexity().validate("aPassword123!");
 ```
 
 When no options are specified, the following are used:
+
 ```javascript
 {
   min: 8,
@@ -35,7 +37,7 @@ When no options are specified, the following are used:
 ### Options specified
 
 ```javascript
-const passwordComplexity = require('joi-password-complexity');
+const passwordComplexity = require("joi-password-complexity");
 
 const complexityOptions = {
   min: 10,
@@ -45,17 +47,27 @@ const complexityOptions = {
   numeric: 1,
   symbol: 1,
   requirementCount: 2,
-}
+};
 
-passwordComplexity(complexityOptions).validate('aPassword123!');
+passwordComplexity(complexityOptions).validate("aPassword123!");
 ```
 
 ### Error Label (optional) Specified
 
-```javascript
-const passwordComplexity = require('joi-password-complexity');
+For default options:
 
-passwordComplexity(undefined, 'Password').validate('aPassword123!');
+```javascript
+const passwordComplexity = require("joi-password-complexity");
+
+passwordComplexity(undefined, "Password").validate("aPassword123!");
+```
+
+For specified options:
+
+```javascript
+const passwordComplexity = require("joi-password-complexity");
+
+passwordComplexity(complexityOptions, "Password").validate("aPassword123!");
 ```
 
 The resulting error message:
