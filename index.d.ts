@@ -10,6 +10,20 @@ declare module 'joi-password-complexity'{
     symbol?: number,
     requirementCount?: number,
   };
+  
+  interface ValidationErrorItem {
+    message: string;
+    type: string;
+    path: string[];
+    options?: ValidationOptions;
+    context?: Context;
+  }
+
+  interface ValidationError extends Error {
+    details: ValidationErrorItem[];
+    annotate(): string;
+    _object: any;
+  }
 
   export type ComplexityObject = {
     type: string,
@@ -25,7 +39,7 @@ declare module 'joi-password-complexity'{
     },
     validate: (value: string) => {
       value: string
-      error: ValidationError | undefined,
+      error?: ValidationError,
     };
   };
 
