@@ -1,7 +1,10 @@
 declare module 'joi-password-complexity'{
-  import { ValidationError } from '@hapi/joi';
 
-  export type ComplexityOptions = {
+  import { Expression } from 'objection';
+
+  export type Types = 'any' | 'alternatives' | 'array' | 'boolean' | 'binary' | 'date' | 'function' | 'lazy' | 'number' | 'object' | 'string';
+
+  type ComplexityOptions = {
     min?: number,
     max?: number,
     lowerCase?: number,
@@ -10,7 +13,35 @@ declare module 'joi-password-complexity'{
     symbol?: number,
     requirementCount?: number,
   };
-  
+
+  interface Context {
+    [key: string]: any;
+    key?: string;
+    label?: string;
+  }
+
+  type LanguageOptions = string | boolean | null | {
+    [key: string]: LanguageOptions;
+  };
+
+  type LanguageRootOptions = {
+    root?: string;
+    key?: string;
+    messages?: { wrapArrays?: boolean; };
+  } & Partial<Record<Types, LanguageOptions>> & { [key: string]: LanguageOptions; };
+
+  interface ValidationOptions {
+    abortEarly?: boolean;
+    convert?: boolean;
+    allowUnknown?: boolean;
+    skipFunctions?: boolean;
+    stripUnknown?: boolean | { arrays?: boolean; objects?: boolean };
+    language?: LanguageRootOptions;
+    presence?: 'optional' | 'required' | 'forbidden';
+    context?: Context;
+    noDefaults?: boolean;
+  }
+
   interface ValidationErrorItem {
     message: string;
     type: string;
@@ -37,7 +68,7 @@ declare module 'joi-password-complexity'{
       'passwordComplexity.symbol': string,
       'passwordComplexity.requirementCount': string,
     },
-    validate: (value: string) => {
+    validate: (value: string | Expression<string>) => {
       value: string
       error?: ValidationError,
     };
