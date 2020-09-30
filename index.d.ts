@@ -1,7 +1,5 @@
 declare module 'joi-password-complexity'{
 
-  import { Expression } from 'objection';
-
   export type Types = 'any' | 'alternatives' | 'array' | 'boolean' | 'binary' | 'date' | 'function' | 'lazy' | 'number' | 'object' | 'string';
 
   type ComplexityOptions = {
@@ -68,7 +66,7 @@ declare module 'joi-password-complexity'{
       'passwordComplexity.symbol': string,
       'passwordComplexity.requirementCount': string,
     },
-    validate: (value: string | Expression<string>) => {
+    validate: (value: string) => {
       value: string
       error?: ValidationError,
     };
