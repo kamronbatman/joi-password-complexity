@@ -37,25 +37,25 @@ export default ({
   numeric,
   symbol,
   requirementCount,
-} = defaultOptions, label = 'value'): JoiPasswordComplexity => {
+}: ComplexityOptions = defaultOptions, label = '{{#label}}'): JoiPasswordComplexity => {
   const joiPasswordComplexity: Extension = {
     type: 'passwordComplexity',
     base: Joi.string(),
     messages: {
       'passwordComplexity.tooShort':
-        `${label || '{{#label}}'} should be at least ${min ?? 0} ${p('character', min)} long`,
+        `${label} should be at least ${min ?? 0} ${p('character', min)} long`,
       'passwordComplexity.tooLong':
-        `${label || '{{#label}}'} should not be longer than ${max ?? 0} ${p('character', max)}`,
+        `${label} should not be longer than ${max ?? 0} ${p('character', max)}`,
       'passwordComplexity.lowercase':
-        `${label || '{{#label}}'} should contain at least ${lowerCase ?? 0} lower-cased ${p('letter', lowerCase)}`,
+        `${label} should contain at least ${lowerCase ?? 0} lower-cased ${p('letter', lowerCase)}`,
       'passwordComplexity.uppercase':
-        `${label || '{{#label}}'} should contain at least ${upperCase ?? 0} upper-cased ${p('letter', upperCase)}`,
+        `${label} should contain at least ${upperCase ?? 0} upper-cased ${p('letter', upperCase)}`,
       'passwordComplexity.numeric':
-        `${label || '{{#label}}'} should contain at least ${numeric ?? 0} ${p('number', numeric)}`,
+        `${label} should contain at least ${numeric ?? 0} ${p('number', numeric)}`,
       'passwordComplexity.symbol':
-        `${label || '{{#label}}'} should contain at least ${symbol ?? 0} ${p('symbol', symbol)}`,
+        `${label} should contain at least ${symbol ?? 0} ${p('symbol', symbol)}`,
       'passwordComplexity.requirementCount':
-        `${label || '{{#label}}'} must meet at least ${requirementCount ?? 0} of the complexity requirements`,
+        `${label} must meet at least ${requirementCount ?? 0} of the complexity requirements`,
     },
     validate: (value: unknown, helpers: CustomHelpers) => {
       const errors = [];
@@ -74,10 +74,10 @@ export default ({
         const meetsNumeric = numericCount >= (numeric ?? 0);
         const meetsSymbol = symbolCount >= (symbol ?? 0);
 
-        const maxRequirement = isPositive(lowerCase) + isPositive(upperCase ?? 0) +
+        const maxRequirement = isPositive(lowerCase) + isPositive(upperCase) +
           isPositive(numeric) + isPositive(symbol);
 
-        const requirement = clamp(requirementCount ?? maxRequirement, 1, maxRequirement);
+        const requirement = clamp(requirementCount || maxRequirement, 1, maxRequirement);
 
         const requirementErrors = [];
 

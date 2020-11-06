@@ -4,3 +4,5 @@ lib/
 src/setupTests.ts
 /src/**/*.spec.ts
 /src/**/*.test.ts
+jest.config.js
+babel.config.js
