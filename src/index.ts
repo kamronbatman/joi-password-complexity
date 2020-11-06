@@ -1,8 +1,8 @@
 import Joi, { CustomHelpers, Extension } from 'joi';
 
 // pluralize
-const p = (word: string, num: number | undefined): string => (num === 1 ? word : `${word}s`);
-const isPositive = (num: number | undefined): number => Number((num ?? 0) > 0);
+const p = (word: string, num = 0): string => (num === 1 ? word : `${word}s`);
+const isPositive = (num = 0): number => Number(num > 0);
 const clamp = (value: number, min: number, max: number): number => (value < min ? min : value > max ? max : value);
 
 const defaultOptions: ComplexityOptions = {
@@ -30,32 +30,32 @@ export interface ComplexityOptions {
 }
 
 export default ({
-  min,
-  max,
-  lowerCase,
-  upperCase,
-  numeric,
-  symbol,
-  requirementCount,
+  min = 0,
+  max = 0,
+  lowerCase = 0,
+  upperCase = 0,
+  numeric = 0,
+  symbol = 0,
+  requirementCount = 0,
 }: ComplexityOptions = defaultOptions, label = '{{#label}}'): JoiPasswordComplexity => {
   const joiPasswordComplexity: Extension = {
     type: 'passwordComplexity',
     base: Joi.string(),
     messages: {
       'passwordComplexity.tooShort':
-        `${label} should be at least ${min ?? 0} ${p('character', min)} long`,
+        `${label} should be at least ${min} ${p('character', min)} long`,
       'passwordComplexity.tooLong':
-        `${label} should not be longer than ${max ?? 0} ${p('character', max)}`,
+        `${label} should not be longer than ${max} ${p('character', max)}`,
       'passwordComplexity.lowercase':
-        `${label} should contain at least ${lowerCase ?? 0} lower-cased ${p('letter', lowerCase)}`,
+        `${label} should contain at least ${lowerCase} lower-cased ${p('letter', lowerCase)}`,
       'passwordComplexity.uppercase':
-        `${label} should contain at least ${upperCase ?? 0} upper-cased ${p('letter', upperCase)}`,
+        `${label} should contain at least ${upperCase} upper-cased ${p('letter', upperCase)}`,
       'passwordComplexity.numeric':
-        `${label} should contain at least ${numeric ?? 0} ${p('number', numeric)}`,
+        `${label} should contain at least ${numeric} ${p('number', numeric)}`,
       'passwordComplexity.symbol':
-        `${label} should contain at least ${symbol ?? 0} ${p('symbol', symbol)}`,
+        `${label} should contain at least ${symbol} ${p('symbol', symbol)}`,
       'passwordComplexity.requirementCount':
-        `${label} must meet at least ${requirementCount ?? 0} of the complexity requirements`,
+        `${label} must meet at least ${requirementCount} of the complexity requirements`,
     },
     validate: (value: unknown, helpers: CustomHelpers) => {
       const errors = [];
@@ -69,10 +69,10 @@ export default ({
         const meetsMin = min && value.length >= min;
         const meetsMax = max && value.length <= max;
 
-        const meetsLowercase = lowercaseCount >= (lowerCase ?? 0);
-        const meetsUppercase = upperCaseCount >= (upperCase ?? 0);
-        const meetsNumeric = numericCount >= (numeric ?? 0);
-        const meetsSymbol = symbolCount >= (symbol ?? 0);
+        const meetsLowercase = lowercaseCount >= (lowerCase);
+        const meetsUppercase = upperCaseCount >= (upperCase);
+        const meetsNumeric = numericCount >= (numeric);
+        const meetsSymbol = symbolCount >= (symbol);
 
         const maxRequirement = isPositive(lowerCase) + isPositive(upperCase) +
           isPositive(numeric) + isPositive(symbol);
