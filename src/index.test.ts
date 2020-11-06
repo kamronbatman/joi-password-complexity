@@ -1,4 +1,4 @@
-const passwordComplexity = require('../lib/index');
+import passwordComplexity from './index';
 
 describe('JoiPasswordComplexity', () => {
   it('should reject a password that is too short', () => {
