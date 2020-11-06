@@ -105,7 +105,6 @@ export default ({
       }
 
       return {
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
         value,
         errors: errors.length ? errors : null,
       };
