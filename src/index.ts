@@ -37,7 +37,7 @@ export default ({
   numeric,
   symbol,
   requirementCount,
-} = defaultOptions, label: string): JoiPasswordComplexity => {
+} = defaultOptions, label = 'value'): JoiPasswordComplexity => {
   const joiPasswordComplexity: Extension = {
     type: 'passwordComplexity',
     base: Joi.string(),
