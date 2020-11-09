@@ -61,23 +61,10 @@ export default ({
       const errors = [];
 
       if (typeof value === 'string') {
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
         const lowercaseCount = value.match(/[a-z]/g)?.length ?? 0;
         const upperCaseCount = value.match(/[A-Z]/g)?.length ?? 0;
         const numericCount = value.match(/[0-9]/g)?.length ?? 0;
         const symbolCount = value.match(/[^a-zA-Z0-9]/g)?.length ?? 0;
-=======
->>>>>>> Stashed changes
-        const lowercaseCount = (value.match(/[a-z]/g) || []).length;
-        const upperCaseCount = (value.match(/[A-Z]/g) || []).length;
-        const numericCount = (value.match(/[0-9]/g) || []).length;
-        const symbolCount = (value.match(/[^a-zA-Z0-9]/g) || []).length;
-<<<<<<< Updated upstream
-=======
->>>>>>> master
->>>>>>> Stashed changes
 
         const meetsMin = min && value.length >= min;
         const meetsMax = max && value.length <= max;
