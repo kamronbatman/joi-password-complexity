@@ -5,7 +5,6 @@ Creates a Joi object that validates password complexity.
 ## Requirements
 
 - Joi v17 or higher
-- Nodejs 14 or higher
 
 ## Installation
 
