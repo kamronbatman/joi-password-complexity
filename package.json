@@ -3,11 +3,13 @@
   "version": "5.0.1",
   "description": "Joi validation for password complexity requirements.",
   "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
     "test": "jest",
     "lint": "eslint src --ext .js,.ts",
     "lint-fix": "yarn lint --fix",
-    "build": "tsc -p tsconfig.json"
+    "build": "tsc -p tsconfig.json",
+    "prepublishOnly": "yarn build"
   },
   "repository": {
     "type": "git",
@@ -37,6 +39,9 @@
     "joi": "^17.3.0",
     "typescript": "^4.0.5"
   },
+  "files": [
+    "lib"
+  ],
   "keywords": [
     "Joi",
     "validation",
