@@ -13,6 +13,9 @@
     "type": "git",
     "url": "git+https://github.com/kamronbatman/joi-password-complexity.git"
   },
+  "peerDependencies": {
+    "joi": ">= 17"
+  },
   "devDependencies": {
     "@babel/core": "^7.12.3",
     "@babel/preset-env": "^7.12.1",
