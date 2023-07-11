@@ -6,4 +6,4 @@ src/setupTests.ts
 /src/**/*.test.ts
 jest.config.js
 babel.config.js
-rollup.config.js
+rollup.config.mjs
