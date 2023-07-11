@@ -5,18 +5,18 @@
     "es6": true
   },
   "extends": [
-    "airbnb-typescript",
+    "plugin:import/recommended",
+    "airbnb-typescript/base",
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:@typescript-eslint/recommended-requiring-type-checking"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "ecmaVersion": 2019,
+    "ecmaVersion": 2021,
     "sourceType": "module",
     "project": "./tsconfig.json"
   },
-  "plugins": ["@typescript-eslint"],
   "rules": {
     "max-len": ["error", { "code": 125 }],
     "no-nested-ternary": "off",

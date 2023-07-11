@@ -3,29 +3,24 @@ import commonjs from '@rollup/plugin-commonjs'
 import external from 'rollup-plugin-peer-deps-external'
 import resolve from '@rollup/plugin-node-resolve'
 
-import pkg from './package.json'
-
 export default {
   input: 'src/index.ts',
   output: [
     {
-      file: pkg.main,
+      file: 'lib/index.js',
       format: 'cjs',
-      exports: 'default',
-      sourcemap: true
+      exports: 'default'
     },
     {
-      file: pkg.module,
+      file: 'lib/index.es.js',
       format: 'es',
-      exports: 'default',
-      sourcemap: true
+      exports: 'default'
     }
   ],
   plugins: [
     external(),
     resolve(),
     typescript({
-      rollupCommonJSResolveHack: true,
       exclude: '**/__tests__/**',
       clean: true
     }),
